@@ -4,6 +4,12 @@ var error = {
 	require:"%s必须要填写",
 	int:"%s必须为数字",
 	email:"邮箱填写错误",
+	/**
+	 * [check 验证]
+	 * @param  {[type]} type [验证类型]
+	 * @param  {[type]} str  [验证的数据]
+	 * @return {[bool]}      [验证的结果]
+	 */
 	check:function(type,str){
 		var re = false;
 		switch(type){

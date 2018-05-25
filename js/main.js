@@ -1,8 +1,20 @@
 $(function(){
+
+	/**
+	 * [绑定关闭遮盖层的事件]
+	 */
 	$("body").on('click','#cover .close i',function(){
 		hideCover();
 	})
 
+	/**
+	 * [
+	 * 	1.绑定所有提交按钮
+	 * 	2.完成自动验证
+	 * 	3.自动提交功能
+	 * 	4.自动处理部分返回值
+	 * ]
+	 */
 	$('input[type="submit"]').click(function(){
 		var re = true;
 		var form = $(this).parents('form');
@@ -38,6 +50,9 @@ $(function(){
 		return false;
 	})
 
+	/**
+	 * [上传文件的事件]
+	 */
 	$('input[type="file"]').change(function(){
 		$(".label.file-name").show().text($(this).val().split("\\").pop());
 	})
@@ -45,6 +60,10 @@ $(function(){
 });
 
 
+/**
+ * [redirect 跳转界面]
+ * @param  {[type]} redirect [跳转路径]
+ */
 function redirect(redirect){
 	if(self==parent){
 		window.location.href = redirect;
@@ -52,6 +71,10 @@ function redirect(redirect){
 		parent.window.location.href = redirect;
 	}
 }
+
+/**
+ * [ajaxHideCover ajax隐藏遮盖层]
+ */
 function ajaxHideCover(){
 	if(self==parent){
 		hideCover();
@@ -60,6 +83,11 @@ function ajaxHideCover(){
 	}
 }
 
+/**
+ * [showCover 显示遮盖层，iframe]
+ * @param  {[type]} that [点击元素]
+ * @return {[type]}      [description]
+ */
 function showCover(that){
 	var url = $(that).attr('data-url');
 	if($("#cover").length==0){
@@ -73,13 +101,11 @@ function showCover(that){
 		$("#cover .main-cover").show();
 		$("#cover .load").hide();
 	};
-/*
-	setTimeout(function(){
-		$("#cover .main-cover").show();
-		$("#cover .load").hide();
-	},100);
-*/
 }
+
+/**
+ * [setCoverHtml 设置遮盖层，不能直接加载，这样会在页面中多增iframe]
+ */
 function setCoverHtml(){
     var html = '<div id="cover">\
 				    <div class="main-cover">\
@@ -91,12 +117,19 @@ function setCoverHtml(){
 	$("body").prepend(html);
 }
 
+/**
+ * [hideCover 隐藏遮盖层]
+ */
 function hideCover(){
 	$("#cover").hide();
 	$("#cover .load").hide();
 	$("#cover .main-cover").hide();
 }
 
+/**
+ * [showError 显示错误]
+ * @param  {[type]} str [错误的内容]
+ */
 function showError(str){
 	$(".error-info").text(str).show();
 	setTimeout(function(){
