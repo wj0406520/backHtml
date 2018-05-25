@@ -82,6 +82,16 @@ function ajaxHideCover(){
 		parent.hideCover();
 	}
 }
+/**
+ * [ajaxShowError ajax错误提示]
+ */
+function ajaxShowError(str){
+	if(self==parent){
+		showError();
+	}else{
+		parent.showError(str);
+	}
+}
 
 /**
  * [showCover 显示遮盖层，iframe]

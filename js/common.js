@@ -43,15 +43,13 @@ var error = {
 };
 
 var ajax = {
-	close:false,
+	close:true,
 	data:{},
 	success:{},
 	run:null,
 	sent:function(object){
 		var close = this.close;
-		if(!close){
-			var run = this.run;
-		}
+		var run = this.run?this.run:null;
 		object.type = "post";
 	    object.processData = false;
 	    object.contentType = false;
@@ -67,10 +65,16 @@ var ajax = {
 			}
 			if(close){
 	            ajaxHideCover();
+        		ajaxShowError('修改成功');
 	            return false;
 			}
 			data = data.data;
-			run(data);
+			if(run){
+				run(data);
+			}else{
+	            ajaxHideCover();
+        		ajaxShowError('修改成功');
+			}
 		}
 		object.error = function(){
 			showError('当前请求错误');
