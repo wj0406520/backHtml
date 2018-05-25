@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <link href="css/common.css" rel="stylesheet" type="text/css" />
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <link href="css/admin_login.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+
+<!--/error-info-->
+<div class="error-info">
+</div>
+<!--/error-info-->
+<div class='admin_login_main'>
+    <div class="admin_login_wrap">
+        <img src="images/logo-big.png">
+        <h1>后台管理</h1>
+        <div class="adming_login_border">
+            <div class="admin_input">
+                <form action="index.php" name="login">
+                    <ul class="admin_items">
+                        <li>
+                            <!-- <label for="user">用户名：</label> -->
+                            <input type="text" handle="require" target="姓名" name="username" value="" id="user" size="40" class="admin_input_style" placeholder="用户名："/>
+                            <!-- <i class="icon-font" style="margin-left: -27px;">&#xe014;</i> -->
+                        </li>
+                        <li>
+                            <!-- <label for="pwd">密码：</label> -->
+                            <input type="password" handle="require" target="哈哈" name="pwd" value="" id="pwd" size="40" class="admin_input_style"   placeholder="密码："/>
+                            <!-- <i class="icon-font" style="margin-left: -27px;">&#xe016;</i> -->
+                        </li>
+                        <li>
+                            <input type="submit" tabindex="3" value="提交" class="btn btn-primary" />
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    ajax.run = function(data){
+        console.log(22);
+    }
+    ajax.success.login = function(data){
+        console.log(33);
+    }
+    ajax.success.hahaha = function(data){
+        console.log(11);
+    }
+</script>
+</body>
+</html>
